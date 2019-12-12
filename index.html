@@ -25,8 +25,58 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Python type hints</h1>
+				</section>
+				<section>
+					<section>
+						<h2>Wat zijn type hints / annotations?</h2>
+					</section>
+					<section>
+						<h3>Python is een dynamically typed language</h3>
+						<p>Types worden runtime gecheckt</p>
+						<pre><code class="bash" data-trim contenteditable style="font-size: 18px;">
+							>>> "3" + 4
+							TypeError: must be str, not int
+						</code></pre>
+					</section>
+					<section>
+						<h3>Type syntax 3.x</h3>
+						<a class="fragment" href="https://www.python.org/dev/peps/pep-0484/"
+						target="_blank">Python Enhancement Proposal (PEP) 484 -- Type Hints</a>
+						<pre class="fragment"><code class="python" data-trim>
+							var_name: type
+
+							def some_function(variable: type) -> return_type:
+								do_something
+						</code></pre>
+						<pre class="fragment"><code class="python" data-trim>
+							count: int
+							list_with_strings: List[str] = []
+
+							def string_repeat(string: str, count: int) -> str:
+							    return string * count
+						</code></pre>
+					</section>
+					<section>
+						<h2>Libraries</h2>
+						<ul>
+							<li>Mypy</li>
+							<li>Pycharm</li>
+							<li>Pylint</li>
+							<li>flake8</li>
+							<li>pyflakes</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+
+					</section>
+					<section>
+						Python syntax in 3.x
+					</section>
+				</section>
 			</div>
 		</div>
 
