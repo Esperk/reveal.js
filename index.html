@@ -28,22 +28,112 @@
 				<section>
 					<h1>Python type hints</h1>
 				</section>
+
+				<!-- Static vs Dynamic languages -->
 				<section>
 					<section>
-						<h2>Wat zijn type hints / annotations?</h2>
+						<h2>Static vs Dynamic languages</h2>
+						<!-- <p>Programming language designs</p> -->
 					</section>
 					<section>
-						<h3>Python is een dynamically typed language</h3>
-						<p>Types worden runtime gecheckt</p>
-						<pre><code class="bash" data-trim contenteditable style="font-size: 18px;">
-							>>> "3" + 4
-							TypeError: must be str, not int
+						<h2>Static typing</h2>
+						<p>Requires explicit declaration or initialization</p>
+						<pre><code class="c" data-trim>
+							/* C code */
+							static int num, sum; // explicit declaration
+							num = 5; // now use the variables
+							sum = 10;
+							sum = sum + num;
+						</code></pre>
+						<p class="fragment">Often checked <i>compile time</i></p>
+					</section>
+					<section>
+						<h2>Dynamic typing</h2>
+						<p>Does <b>not</b> require decleration</p>
+						<pre class="c"><code class="python" data-trim>
+							/* Python code */
+							num = 10 // directly using the variable
+						</code></pre>
+						<p class="fragment">Types are checked <i>runtime</i></p>
+					</section>
+				</section>
+
+				<!-- Strong vs Weak languages -->
+				<section>
+					<section>
+						<h2>Strong vs weak typed</h2>
+						<p>Often confused with static or dynamic</p>
+					</section>
+					<section>
+						<h2>Strong typed</h2>
+						<p>Variables are a specific data type</p>
+						<pre><code class="python" data-trim>
+							/* Python code */
+							>>> foo = "x"
+							>>> foo = foo + 2
+							Traceback (most recent call last):
+							  File "&lt;pyshell#3&gt;", line 1, in ?
+							    foo = foo + 2
+							TypeError: cannot concatenate 'str' and 'int' objects
 						</code></pre>
 					</section>
 					<section>
-						<h3>Type syntax 3.x</h3>
+						<h2>Weak typed</h2>
+						<p>Variables are not of a specific data type</p>
+						<pre><code class="php" data-trim>
+							/* PHP code */
+							<?php
+							$foo = "x";
+							$foo = $foo + 2; // not an error
+							echo $foo;
+							?>
+						</code></pre>
+					</section>
+				</section>
+
+				<!-- PYTHON TYPE HINTS -->
+				<section>
+					<section>
+						<h2>Python</h2>
+						<ul>
+							<!-- <li class="fragment">A dynamic language</li>
+							<li class="fragment">Strong typed</li> -->
+						</ul>
+					</section>
+					<section>
+						<h3>Python is a dynamic language</h3>
+						<ul>
+							<li><p class="fragment">Python is compiled into bytecode using CPython</p>
+							<li><p class="fragment">Does CPython know the types?</p>
+							<li><p class="fragment">Every python variable is an Object
+							<span class="fragment">(<img src="https://static.computerworld.nl/uploads/y/j/yj25e779sz8xxwhg.png" width=60 height=60>)</span></p>
+							<p class="fragment">Check-on-return (runtime)</p>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Pythons solution</h2>
+					</section>
+					<section>
+						<h3>Python’s annotations</h3>
+						<p class="fragment" ><a href="https://www.python.org/dev/peps/pep-3107/"
+								target="_blank">PEP 3107 -- Function Annotations</a></p>
+						<p class="fragment">
+						This PEP introduces a syntax for adding arbitrary metadata annotations to Python functions.
+						</p>
+						<pre class="fragment"><code class="python" data-trim>
+							def compile(source: "something compilable",
+							            filename: "where the compilable thing comes from",
+							            mode: "is this a single statement or a suite?"):
+							    do_something
+						</code></pre>
+						<p class="fragment">Only interpreted by third-party libraries</p>
+					</section>
+					<section>
+						<h3>Python's type hints</h3>
 						<a class="fragment" href="https://www.python.org/dev/peps/pep-0484/"
-						target="_blank">Python Enhancement Proposal (PEP) 484 -- Type Hints</a>
+						target="_blank">PEP 484 -- Type Hints</a>
 						<pre class="fragment"><code class="python" data-trim>
 							var_name: type
 
@@ -55,7 +145,7 @@
 							list_with_strings: List[str] = []
 
 							def string_repeat(string: str, count: int) -> str:
-							    return string * count
+									return string * count
 						</code></pre>
 					</section>
 					<section>
@@ -67,14 +157,6 @@
 							<li>flake8</li>
 							<li>pyflakes</li>
 						</ul>
-					</section>
-				</section>
-				<section>
-					<section>
-
-					</section>
-					<section>
-						Python syntax in 3.x
 					</section>
 				</section>
 			</div>

@@ -11,3 +11,5 @@ node_modules/
 .sass-cache
 css/reveal.min.css
 js/reveal.min.js
+python_type_demos/env
+python_type_demos/.mypy_cache/
